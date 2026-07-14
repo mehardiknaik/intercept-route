@@ -1,0 +1,97 @@
+.page {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 106, 0, 0.2), transparent 35%),
+    radial-gradient(circle at 85% 0%, rgba(0, 156, 255, 0.2), transparent 30%),
+    linear-gradient(180deg, #101217 0%, #07080a 100%);
+}
+
+.card {
+  width: min(420px, 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgb(15, 17, 24);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  color: #f7f7f7;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: #a3b3c6;
+}
+
+.title {
+  margin-top: 0.35rem;
+  font-size: 1.85rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: 0.65rem;
+  color: #b8c2cf;
+  font-size: 0.92rem;
+}
+
+.form {
+  margin-top: 1.3rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.label {
+  margin-top: 0.45rem;
+  color: #d3dde9;
+  font-size: 0.88rem;
+}
+
+.input {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.68rem 0.75rem;
+  outline: none;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.input::placeholder {
+  color: #8f9aa9;
+}
+
+.input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.submit {
+  margin-top: 0.9rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.72rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #051622;
+  background: linear-gradient(90deg, #f8d94b 0%, #f59e0b 100%);
+  transition:
+    transform 0.16s ease,
+    filter 0.16s ease;
+}
+
+.submit:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+.submit:active {
+  transform: translateY(0);
+}

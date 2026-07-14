@@ -1,0 +1,32 @@
+.page {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background-color: black;
+  color: #fff;
+}
+
+.card {
+  width: min(680px, 100%);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+}
+
+.title {
+  margin: 0 0 0.9rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.text {
+  margin: 0.5rem 0;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+.footer {
+  text-align: center;
+}
