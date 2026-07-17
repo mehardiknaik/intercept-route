@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useNavigateInterception } from '../../context/useNavigateInterception';
+import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
 import style from './Model.module.css';
 import closeImg from '../../assets/close.svg';
 import fillImg from '../../assets/full.svg';

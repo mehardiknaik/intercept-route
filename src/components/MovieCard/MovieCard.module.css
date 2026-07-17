@@ -8,10 +8,6 @@
     box-shadow 0.2s;
 }
 
-.card:hover {
-  /* removed scale to avoid conflict with hover popup */
-}
-
 .posterWrap {
   position: relative;
 }
@@ -62,7 +58,6 @@
 
 .hoverPopup {
   position: absolute;
-  top: 0;
   width: 130%;
   z-index: 10;
   background: #1a1a1a;
@@ -86,18 +81,28 @@
 
 .center {
   left: -15%;
-  transform-origin: center center;
 }
 
 .leftEdge {
   left: 0;
-  transform-origin: left center;
 }
 
 .rightEdge {
   right: 0;
   left: auto;
-  transform-origin: right center;
+}
+
+.centerY {
+  top: 0;
+}
+
+.topEdgeY {
+  top: 0;
+}
+
+.bottomEdgeY {
+  bottom: 0;
+  top: auto;
 }
 
 .popupPosterWrap {
@@ -143,7 +148,7 @@
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  /* -webkit-line-clamp: 3; */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -169,4 +174,10 @@
   border-radius: 3px;
   font-size: 0.7rem;
   font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .hoverPopup {
+    width: 100%;
+  }
 }

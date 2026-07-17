@@ -2,9 +2,10 @@ import { useParams } from 'react-router';
 import { data } from '../../data';
 import MovieCard from '../../components/MovieCard';
 import style from './MoviePage.module.css';
-import { useNavigateInterception } from '../../context/useNavigateInterception';
+import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
 import { useEffect, useState } from 'react';
 import useIsMobile from '../../hooks/useIsMobile';
+import { usePageContext } from '../../context/pageContext';
 
 const TMDB_IMG = 'https://image.tmdb.org/t/p';
 
@@ -38,6 +39,7 @@ const MoviePage = () => {
   const navigate = useNavigateInterception();
   const movie = data.find((m) => m.id === Number(id));
   const isMobile = useIsMobile();
+  const { pageRef } = usePageContext();
 
   const [loadedMovieId, setLoadedMovieId] = useState<number | null>(null);
 
@@ -116,7 +118,7 @@ const MoviePage = () => {
   };
 
   return (
-    <div className={style.page}>
+    <div className={style.page} ref={pageRef}>
       {/* Hero backdrop */}
       <div
         className={style.backdrop}

@@ -1,7 +1,8 @@
 import { lazy, useContext } from 'react';
 import { Routes, Route, useLocation } from 'react-router';
 import Navbar from './components/Navbar';
-import { InterceptionContext } from './context/InterceptionContext';
+import { InterceptionContext } from './context/intercaption/InterceptionContext';
+import withPageContext from './hoc/withPageContext';
 
 const Model = lazy(() => import('./components/Model'));
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -9,6 +10,8 @@ const MoviePage = lazy(() => import('./pages/MoviePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage/index'));
 const WatchPage = lazy(() => import('./pages/WatchPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
+const MoviePageWithHOC = withPageContext(MoviePage);
+// const HomePageWithHOC = withPageContext(HomePage);
 
 /**
  * Route Interception Pattern with Context
@@ -43,7 +46,7 @@ const AppRoutes = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/watch" element={<WatchPage />} />
-          <Route path="/movie/:id" element={<MoviePage />} />
+          <Route path="/movie/:id" element={<MoviePageWithHOC />} />
         </Route>
       </Routes>
 
@@ -54,7 +57,7 @@ const AppRoutes = () => {
             path="/movie/:id"
             element={
               <Model>
-                <MoviePage />
+                <MoviePageWithHOC />
               </Model>
             }
           />

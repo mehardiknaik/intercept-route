@@ -1,6 +1,6 @@
 import { data } from '../../data';
 import MovieCard from '../../components/MovieCard';
-import { useNavigateInterception } from '../../context/useNavigateInterception';
+import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
 import style from './HomePage.module.css';
 import useIsMobile from '../../hooks/useIsMobile';
 

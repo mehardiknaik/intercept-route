@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router';
 import style from './Navbar.module.css';
-import { LinkInterception as Link } from '../../context/LinkInterception';
+import { LinkInterception as Link } from '../../context/intercaption/LinkInterception';
 
 const Navbar = () => {
   const { pathname } = useLocation();
