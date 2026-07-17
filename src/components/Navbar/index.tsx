@@ -1,9 +1,11 @@
 import { Outlet, useLocation } from 'react-router';
 import style from './Navbar.module.css';
 import { LinkInterception as Link } from '../../context/intercaption/LinkInterception';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -19,7 +21,7 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            intercept
+            intercept={!isMobile}
             to="/login"
             className={`${style.link} ${pathname === '/login' ? style.active : ''}`}>
             Login
