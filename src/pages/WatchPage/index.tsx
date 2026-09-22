@@ -8,7 +8,7 @@ import style from './WatchPage.module.css';
 
 const DUMMY_VIDEO_SRC =
   // 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4';
-  'https://lorem.video/cat_720p';
+  'https://d2zihajmogu5jn.cloudfront.net/hls-webvtt/master.m3u8';
 
 const CONTROL_HIDE_DELAY = 2000; // milliseconds
 const PLAYER_ACTIVITY_DEBOUNCE_MS = 120;
@@ -360,7 +360,7 @@ const WatchPage = () => {
             <div
               onMouseEnter={handleVolumeControlsActivity}
               onMouseLeave={handleVolumeControlsActivity}
-              className={`${style.volumeControls} ${volumeControlsVisible ? style.volumeControlsVisible : style.volumeControlsHidden}`}>
+              className={`${style.volumeControls} ${volumeControlsVisible ? '' : style.volumeControlsHidden}`}>
               {/* <button className={style.controlBtn} onClick={toggleMute} type="button"> */}
               <img
                 onClick={toggleMute}

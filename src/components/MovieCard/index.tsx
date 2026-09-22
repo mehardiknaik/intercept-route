@@ -113,9 +113,6 @@ const MovieCard = ({ movie, onClick }: Props) => {
       {isRendered && (
         <div
           className={`${style.hoverPopup} ${style[popupPositionX]} ${style[popupPositionY]} ${isHovered ? style.hoverPopupVisible : style.hoverPopupHidden}`}
-          style={{
-            transformOrigin: `${popupPositionX === 'center' ? 'center' : popupPositionX === 'leftEdge' ? 'left' : 'right'} ${popupPositionY === 'centerY' ? 'center' : popupPositionY === 'topEdgeY' ? 'top' : 'bottom'}`
-          }}
           onClick={onClick}>
           <div className={style.popupPosterWrap}>
             <img

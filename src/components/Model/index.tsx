@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
 import style from './Model.module.css';
 import closeImg from '../../assets/close.svg';
@@ -21,16 +21,24 @@ const Model = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const body = document.body;
+    const previousOverflow = body.style.overflow;
+    const previousPaddingRight = body.style.paddingRight;
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollBarWidth > 0) {
+      const currentPaddingRight = parseFloat(previousPaddingRight) || 0;
+      body.style.paddingRight = `${currentPaddingRight + scrollBarWidth}px`;
+    }
     body.style.overflow = 'hidden';
     return () => {
-      body.style.overflow = 'auto';
+      body.style.overflow = previousOverflow;
+      body.style.paddingRight = previousPaddingRight;
     };
   }, []);
 
   useEffect(() => {
-    ref.current?.scrollTo(0, 0);
+    // ref.current?.scrollTo(0, 0);
   }, [location]);
 
   return (

@@ -70,14 +70,16 @@
   letter-spacing: 0.08em;
   font-weight: 700;
   cursor: pointer;
+  transition: width 0.2s ease;
+  width: 170px;
 }
 
 .volumeControlsHidden {
   width: 41px;
-}
 
-.volumeControlsVisible {
-  width: auto;
+  .volume {
+    display: none;
+  }
 }
 
 .controls {
@@ -232,7 +234,11 @@
   }
 
   .volumeControlsHidden {
-    width: auto;
+    width: 170px;
+
+    .volume {
+      display: unset;
+    }
   }
 }
 

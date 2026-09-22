@@ -176,6 +176,42 @@
   font-weight: 700;
 }
 
+.leftEdge.bottomEdgeY {
+  transform-origin: left bottom;
+}
+
+.rightEdge.bottomEdgeY {
+  transform-origin: right bottom;
+}
+
+.leftEdge.topEdgeY {
+  transform-origin: left top;
+}
+
+.rightEdge.topEdgeY {
+  transform-origin: right top;
+}
+
+.center.bottomEdgeY {
+  transform-origin: center bottom;
+}
+
+.center.topEdgeY {
+  transform-origin: center top;
+}
+
+.center.centerY {
+  transform-origin: center center;
+}
+
+.leftEdge.centerY {
+  transform-origin: left center;
+}
+
+.rightEdge.centerY {
+  transform-origin: right center;
+}
+
 @media (max-width: 600px) {
   .hoverPopup {
     width: 100%;
