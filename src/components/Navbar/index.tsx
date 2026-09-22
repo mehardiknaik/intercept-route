@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router';
 import style from './Navbar.module.css';
-import { LinkInterception as Link } from '../../context/intercaption/LinkInterception';
+import { LinkInterception as Link } from '../Interception';
 import useIsMobile from '../../hooks/useIsMobile';
 
 const Navbar = () => {

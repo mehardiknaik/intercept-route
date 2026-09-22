@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { data } from '../../data';
 import MovieCard from '../../components/MovieCard';
 import style from './MoviePage.module.css';
-import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
+import { useNavigateInterception } from '../../components/Interception';
 import { useEffect, useState } from 'react';
 import useIsMobile from '../../hooks/useIsMobile';
 import { usePageContext } from '../../context/pageContext';

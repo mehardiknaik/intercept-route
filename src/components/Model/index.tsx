@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { useNavigateInterception } from '../../context/intercaption/useNavigateInterception';
+import { useNavigateInterception } from '../Interception';
 import style from './Model.module.css';
 import closeImg from '../../assets/close.svg';
 import fillImg from '../../assets/full.svg';
 import { useLocation } from 'react-router';
 
-const Model = ({ children }: { children: React.ReactNode }) => {
+export const Model = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigateInterception();
   const ref = useRef<HTMLDivElement>(null);
   const location = useLocation();
@@ -38,7 +38,7 @@ const Model = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    // ref.current?.scrollTo(0, 0);
+    ref.current?.scrollTo(0, 0);
   }, [location]);
 
   return (
@@ -59,5 +59,3 @@ const Model = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
-
-export default Model;
