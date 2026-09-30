@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import style from './AboutPage.module.css';
 import Scrolling from 'web-scrolling-text/react';
-import fade from 'web-scrolling-text/animation/rotate';
+// import fade from 'web-scrolling-text/animation/rotate';
+
+const footerText = ['Vesion', 'Build On'];
 
 const AboutPage = () => {
+  const [selected, setSelected] = useState(0);
   return (
     <section className={style.page}>
       <div className={style.card}>
@@ -13,8 +17,12 @@ const AboutPage = () => {
         </p>
       </div>
       <div className={style.footer}>
-        <Scrolling options={fade}>
-          {[`Version: ${__VERSION__}`, `Build Date: ${__BUILD_DATE__}`]}
+        <div>{footerText?.[selected]} : </div>
+        <Scrolling
+          options={{
+            onChange: setSelected
+          }}>
+          {[__VERSION__, __BUILD_DATE__]}
         </Scrolling>
       </div>
     </section>
