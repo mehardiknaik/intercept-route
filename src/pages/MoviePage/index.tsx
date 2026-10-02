@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { data } from '../../data';
 import MovieCard from '../../components/MovieCard';
 import style from './MoviePage.module.css';
-import { useNavigateInterception } from '../../components/Interception';
+import { useInterceptionContext, useNavigateInterception } from '../../components/Interception';
 import { useEffect, useState } from 'react';
 import useIsMobile from '../../hooks/useIsMobile';
 import { usePageContext } from '../../context/pageContext';
@@ -37,11 +37,16 @@ const preloadImage = (src: string) =>
 const MoviePage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigateInterception();
+  const { isIntercepting } = useInterceptionContext();
   const movie = data.find((m) => m.id === Number(id));
   const isMobile = useIsMobile();
   const { pageRef } = usePageContext();
 
   const [loadedMovieId, setLoadedMovieId] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isIntercepting) window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     let mounted = true;

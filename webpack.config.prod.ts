@@ -6,8 +6,8 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import merge from 'webpack-merge';
 import commonConfig from './webpack.config.common';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import WebpackObfuscator from 'webpack-obfuscator';
 import pkg from './package.json';
-
 process.env.BABEL_ENV = 'production';
 const SEPERATE_FOLDERS = true;
 
@@ -111,7 +111,21 @@ const config: Configuration = {
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
       analyzerMode: 'static'
-    })
+    }),
+    new WebpackObfuscator({
+      compact: true,
+      controlFlowFlattening: true,
+      controlFlowFlatteningThreshold: 0.4,
+      // deadCodeInjection: false,
+      // deadCodeInjectionThreshold: 0.2,
+      // disableConsoleOutput: true,
+      identifierNamesGenerator: 'hexadecimal',
+      rotateStringArray: true,
+      selfDefending: true,
+      stringArray: true,
+      stringArrayThreshold: 0.75,
+      StringArrayEncoding: ["rc4"]
+    }, ['npm.*.js'])
   ]
 };
 
