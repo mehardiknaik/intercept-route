@@ -8,15 +8,16 @@ import commonConfig from './webpack.config.common';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackObfuscator from 'webpack-obfuscator';
 import pkg from './package.json';
+
+
 process.env.BABEL_ENV = 'production';
 const SEPERATE_FOLDERS = true;
-
 const config: Configuration = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
-    chunkFilename: `${SEPERATE_FOLDERS ? 'chunk/' : ''}[name].[contenthash].js`,
+    filename: '[name].[chunkhash].js',
+    chunkFilename: `${SEPERATE_FOLDERS ? 'chunk/' : ''}[name].[chunkhash].js`,
     hashDigestLength: 7,
     clean: true
   },
@@ -65,7 +66,6 @@ const config: Configuration = {
       new TerserPlugin({
         exclude: [/config\.js$/],
         extractComments: false,
-
         terserOptions: {
           ecma: 5,
           compress: {
@@ -79,9 +79,7 @@ const config: Configuration = {
             collapse_vars: true,
             reduce_vars: true
           },
-
           mangle: true,
-
           format: {
             comments: false
           }
@@ -99,7 +97,7 @@ const config: Configuration = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      chunkFilename: `${SEPERATE_FOLDERS ? 'css/' : ''}[name].[contenthash].css`
+      chunkFilename: `${SEPERATE_FOLDERS ? 'css/' : ''}[name].[chunkhash].css`
     }),
     new DefinePlugin({
       __DEV__: JSON.stringify(false),
@@ -123,7 +121,7 @@ const config: Configuration = {
       selfDefending: true,
       stringArray: true,
       stringArrayThreshold: 0.75,
-      StringArrayEncoding: ['rc4']
+      stringArrayEncoding: ['rc4']
     }, ['npm.*.js', 'config.js'])
   ]
 };
