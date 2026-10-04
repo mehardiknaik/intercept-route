@@ -56,29 +56,6 @@ const config: Configuration = {
         test: /\.(css|scss)$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
         exclude: /\.module\.(css|scss)$/
-      },
-      {
-        test: /\.(ts|tsx|js|jsx|mjs|cjs)$/i,
-        exclude: /node_modules/,
-        enforce: 'post',
-        use: [{
-          loader: WebpackObfuscator.loader, options:
-          {
-            compact: true,
-            controlFlowFlattening: true,
-            controlFlowFlatteningThreshold: 0.4,
-            deadCodeInjection: true,
-            deadCodeInjectionThreshold: 0.2,
-            identifierNamesGenerator: 'hexadecimal',
-            rotateStringArray: true,
-            selfDefending: true,
-            stringArray: true,
-            stringArrayEncoding: ['rc4'],
-            stringArrayThreshold: 0.75,
-            ignoreRequireImports: true,
-            ignoreImports: true
-          }
-        }]
       }
     ]
   },
@@ -134,7 +111,20 @@ const config: Configuration = {
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
       analyzerMode: 'static'
-    })
+    }),
+    new WebpackObfuscator({
+      compact: true,
+      controlFlowFlattening: true,
+      controlFlowFlatteningThreshold: 0.4,
+      deadCodeInjection: true,
+      deadCodeInjectionThreshold: 0.2,
+      identifierNamesGenerator: 'hexadecimal',
+      rotateStringArray: true,
+      selfDefending: true,
+      stringArray: true,
+      stringArrayThreshold: 0.75,
+      StringArrayEncoding: ['rc4']
+    }, ['npm.*.js', 'config.js'])
   ]
 };
 
