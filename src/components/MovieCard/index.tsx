@@ -23,6 +23,15 @@ interface Props {
 const TMDB_IMG = 'https://image.tmdb.org/t/p/w342';
 const HOVER_TIME = 1200;
 
+const positionStyle = {
+  center: style.center,
+  leftEdge: style.leftEdge,
+  rightEdge: style.rightEdge,
+  centerY: style.centerY,
+  topEdgeY: style.topEdgeY,
+  bottomEdgeY: style.bottomEdgeY
+};
+
 const MovieCard = ({ movie, onClick }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
@@ -112,7 +121,7 @@ const MovieCard = ({ movie, onClick }: Props) => {
 
       {isRendered && (
         <div
-          className={`${style.hoverPopup} ${style[popupPositionX]} ${style[popupPositionY]} ${isHovered ? style.hoverPopupVisible : style.hoverPopupHidden}`}
+          className={`${style.hoverPopup} ${positionStyle[popupPositionX]} ${positionStyle[popupPositionY]} ${isHovered ? style.hoverPopupVisible : ''}`}
           onClick={onClick}>
           <div className={style.popupPosterWrap}>
             <img

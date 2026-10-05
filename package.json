@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.dev.ts",
     "build": "webpack --config webpack.config.prod.ts",
+    "preview": "serve -s dist",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "clean": "bash scripts/clean.sh",
@@ -23,6 +24,7 @@
     "web-scrolling-text": "^6.3.0"
   },
   "devDependencies": {
+    "serve": "^14.2.6",
     "@babel/core": "^7.29.0",
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.28.5",
     "@babel/plugin-transform-runtime": "^7.29.0",

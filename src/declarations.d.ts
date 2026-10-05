@@ -1,8 +1,3 @@
-declare module '*.css' {
-  const content: { [className: string]: string };
-  export = content;
-}
-
 /**
  * Module declaration for image files.
  * Allows importing images as modules.
