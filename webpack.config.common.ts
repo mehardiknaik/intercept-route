@@ -33,7 +33,7 @@ const config: Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', 'jsx']
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
   },
   optimization: {
     splitChunks: {
